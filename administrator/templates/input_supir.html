@@ -1,0 +1,28 @@
+{% extends "main_layout.html" %}
+{% block content %}
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-row">
+        <div class="card-body">
+            <label class="small mb-1">Nik:</label>
+            {{ supir_form.nik }}
+            <label class="small mb-1">Nama:</label>
+            {{ supir_form.nama }}
+            <label class="small mb-1">tanggal lahir:</label>
+            {{ supir_form.tgl_lahir }}
+            <label class="small mb-1">jadwal:</label>
+            {{ supir_form.jadwal }}
+            <label class="small mb-1">alamat:</label>
+            {{ supir_form.alamat }}
+        </div>
+        <div class="card-body">
+            <hr>
+            <label class="small mb-1">Ganti Avatar:</label>
+            {{ supir_form.avatar }}
+        </div>
+    </div>
+    <hr>
+    <button type="submit" class="btn btn-dark btn-lg">Simpan Perubahan</button>
+    <button type="reset" class="btn btn-dark btn-lg">Reset</button>
+</form>
+{% endblock %}
