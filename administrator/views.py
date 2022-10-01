@@ -5,6 +5,8 @@ from django.contrib import messages
 from django.views import View
 from django.contrib.auth.decorators import login_required
 
+from administrator.models import Supir
+
 from .forms import SignupForm, SigninForm, UpdateProfilForm, UpdateUserForm, SupirForm
 
 # Create your views here.
@@ -84,16 +86,23 @@ def home(request):
 
 @login_required
 def data_supir(request):
-    return render(request, 'data_supir.html')
+    supir = Supir.objects.all()
+    return render(request, 'data_supir.html', {'supir': supir})
 
 
 @login_required
 def input_supir(request):
-    supir_form = SupirForm(request.POST or None)
-    if supir_form.is_valid:
-        supir_form.save()
-        messages.success(request, 'Supir berhasil ditambahkan')
-        return redirect(to='datasupir')
+    if request.method == 'POST':
+        supir_form = SupirForm(request.POST, request.FILES)
+        if supir_form.is_valid:
+            try:
+                supir_form.save()
+                messages.success(request, 'Supir berhasil ditambahkan')
+                return redirect(to='datasupir')
+            except:
+                pass
+    else:
+        supir_form = SupirForm()
     return render(request, 'input_supir.html', {'supir_form': supir_form})
 
 

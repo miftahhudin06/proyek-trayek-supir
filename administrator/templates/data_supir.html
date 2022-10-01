@@ -14,7 +14,7 @@
         </tr>
         {% for x in supir %}
         <tr>
-            <td><img src="{{BASE_DIR}}/{{x.avatar}}" class="avatar img-fluid rounded" width="50" height="50"></td>
+            <td><img src="{{MEDIA_ROOT}}/media/{{x.avatar}}" class="avatar img-fluid rounded" width="50" height="50"></td>
             <td>{{ x.nama }}</td>
             <td><a class="btn btn-primary" href="{% url 'profilsupir' %}">Lihat detail</a></td>
         </tr>

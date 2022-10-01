@@ -2,6 +2,8 @@ from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 
+from administrator.models import Profil, Supir
+
 # sign up form
 
 
@@ -98,7 +100,7 @@ class UpdateProfilForm(forms.ModelForm):
         attrs={'class': 'form-control', 'rows': 5}))
 
     class Meta:
-        model = ""
+        model = Profil
         fields = ['avatar', 'bio']
 
 
@@ -133,5 +135,5 @@ class SupirForm(forms.ModelForm):
         attrs={'class': 'form-control-file'}))
 
     class Meta:
-        model = ""
-        fields = ['nik', 'nama', 'tgl_lahir', 'jadwal', 'alamat', 'avatar']
+        model = Supir
+        fields = '__all__'
