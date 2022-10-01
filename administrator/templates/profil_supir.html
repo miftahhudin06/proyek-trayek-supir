@@ -11,8 +11,8 @@
                     <h5 class="card-title mb-0"></h5>
                 </div>
                 <div class="card-body text-center">
-                    <img src="" class="rounded-circle mb-3" width="100" height="100">
-                    <h5 class="card-title mb-0">jonathan</h5>
+                    <img src="{{MEDIA_ROOT}}/media/{{supir1.avatar}}" class="rounded-circle mb-3" width="100" height="100">
+                    <h5 class="card-title mb-0">{{ supir1.nama }}</h5>
                     <div class="text-muted mb-2">Supir</div>
                 </div>
                 <hr class="my-0">
@@ -46,23 +46,29 @@
                         <div class="form-row">
                             <div class="card-body">
                                 <label class="small mb-1">Nik:</label>
-
+                                {{ supirform.nik }}
                                 <label class="small mb-1">Nama:</label>
-                                    
+                                {{ supirform.nama }}
                                 <label class="small mb-1">Tanggal lahir:</label>
-                                    
+                                {{ supirform.tgl_lahir }}
+                                <label class="small mb-1">jadwal:</label>
+                                {{ supirform.jadwal }}
+                                <label class="small mb-1">alamat:</label>
+                                {{ supirform.alamat }}
                             </div>
                             <div class="card-body">
                                 <hr>
                                 <label class="small mb-1">Ganti Avatar:</label>
+                                {{supirform.avatar}}
                                 
                             </div>
-                            <label class="small mb-1">Edit Bio:</label> 
                         </div>
                         <hr>
                         <button type="submit" class="btn btn-dark btn-lg">Simpan Perubahan</button>
                         <button type="reset" class="btn btn-dark btn-lg">Reset</button>
+                        <a class="btn btn-danger btn-lg" href="">Hapus Supir</a>
                     </form>
+                    
                 </div>
             </div>
         </div>

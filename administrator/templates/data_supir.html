@@ -16,7 +16,7 @@
         <tr>
             <td><img src="{{MEDIA_ROOT}}/media/{{x.avatar}}" class="avatar img-fluid rounded" width="50" height="50"></td>
             <td>{{ x.nama }}</td>
-            <td><a class="btn btn-primary" href="{% url 'profilsupir' %}">Lihat detail</a></td>
+            <td><a class="btn btn-primary" href="{% url 'profilsupir' x.id %}">Lihat detail</a></td>
         </tr>
         {% endfor %}
     </table>

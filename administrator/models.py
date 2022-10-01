@@ -1,3 +1,4 @@
+from unittest.util import _MAX_LENGTH
 from django.db import models
 from django.contrib.auth.models import User
 from PIL import Image
@@ -34,3 +35,12 @@ class Supir(models.Model):
 
     def __str__(self):
         return self.nama
+
+
+class Jenis_Angkutan(models.Model):
+    nama_supir = models.OneToOneField(Supir, on_delete=models.CASCADE)
+    no_angkutan = models.CharField(max_length=4)
+    rute = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.nama_supir.nama

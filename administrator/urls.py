@@ -14,7 +14,7 @@ urlpatterns = [
     path('profil/', views.profil, name='profil'),
     path('datasupir/', views.data_supir, name='datasupir'),
     path('inputsupir/', views.input_supir, name='inputsupir'),
-    path('profilsupir/', views.profil_supir, name='profilsupir'),
+    path('profilsupir/<int:id>/', views.profil_supir, name='profilsupir'),
     path('jenisangkutan/', views.jenis_angkutan, name='jenisangkutan'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

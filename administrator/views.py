@@ -107,8 +107,16 @@ def input_supir(request):
 
 
 @login_required
-def profil_supir(request):
-    return render(request, 'profil_supir.html')
+def profil_supir(request, id):
+    supir1 = Supir.objects.get(id=id)
+    if request.method == 'POST':
+        supir_form = SupirForm(request.POST, request.FILES, instance=supir1)
+        if supir_form.is_valid:
+            supir_form.save()
+            return redirect(to='datasupir')
+    else:
+        supir_form = SupirForm(instance=supir1)
+    return render(request, 'profil_supir.html', {'supirform': supir_form, 'supir1': supir1})
 
 
 @login_required
