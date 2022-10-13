@@ -5,9 +5,9 @@ from django.contrib import messages
 from django.views import View
 from django.contrib.auth.decorators import login_required
 
-from administrator.models import Supir
+from administrator.models import Jenis_Angkutan, Supir
 
-from .forms import SignupForm, SigninForm, UpdateProfilForm, UpdateUserForm, SupirForm
+from .forms import InputAngkutan, SignupForm, SigninForm, UpdateProfilForm, UpdateUserForm, SupirForm
 
 # Create your views here.
 
@@ -121,4 +121,27 @@ def profil_supir(request, id):
 
 @login_required
 def jenis_angkutan(request):
-    return render(request, 'jenis_angkutan.html')
+    jenisAngkutan = Jenis_Angkutan.objects.all()
+    return render(request, 'jenis_angkutan.html', {'jenisangkutan': jenisAngkutan})
+
+
+@login_required
+def input_jenis_angkutan(request):
+    if request.method == 'POST':
+        angkutan_form = InputAngkutan(request.POST)
+        if angkutan_form.is_valid:
+            angkutan_form.save()
+            return redirect(to='jenisangkutan')
+    else:
+        angkutan_form = InputAngkutan()
+    return render(request, 'input_jenis_angkutan.html', {'angkutan_form': angkutan_form})
+
+
+@login_required
+def laporan_hasil_narik(request):
+    return render(request, 'laporan_hasil_narik.html')
+
+
+@login_required
+def laporan_bulanan(request):
+    return render(request, 'laporan_bulanan.html')

@@ -39,7 +39,7 @@ class Supir(models.Model):
 
 class Jenis_Angkutan(models.Model):
     nama_supir = models.OneToOneField(Supir, on_delete=models.CASCADE)
-    no_angkutan = models.CharField(max_length=4)
+    no_angkutan = models.CharField(max_length=10)
     rute = models.CharField(max_length=200)
 
     def __str__(self):

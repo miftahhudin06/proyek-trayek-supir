@@ -16,5 +16,9 @@ urlpatterns = [
     path('inputsupir/', views.input_supir, name='inputsupir'),
     path('profilsupir/<int:id>/', views.profil_supir, name='profilsupir'),
     path('jenisangkutan/', views.jenis_angkutan, name='jenisangkutan'),
+    path('inputjenisangkutan/', views.input_jenis_angkutan,
+         name='inputjenisangkutan'),
+    path('laporanhasilnarik/', views.laporan_hasil_narik, name='laporanhasilnarik'),
+    path('laporanbulanan/', views.laporan_bulanan, name='laporanbulanan'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

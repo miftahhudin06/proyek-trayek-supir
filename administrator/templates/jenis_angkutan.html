@@ -4,15 +4,23 @@
     <div class="mb-3">
         <h1 class="h3 d-inline align-middle">Jenis Angkutan Umum</h1>
     </div>
-    <a class="btn btn-success" href="">Input Jenis Angkutan</a>
+    <a class="btn btn-success" href="{% url 'inputjenisangkutan' %}">Input Jenis Angkutan</a>
     <hr>
     <table class="table table-striped table-success">
         <tr>
+            <th>Nama Supir</th>
             <th>Kode Angkutan umum</th>
+            <th>Rute</th>
+            <th></th>
         </tr>
+        {% for x in jenisangkutan%}
         <tr>
+            <td>{{x.nama_supir}}</td>
+            <td>{{x.no_angkutan}}</td>
+            <td>{{x.rute}}</td>
             <td><a class="btn btn-primary" href="">Lihat detail</a></td>
         </tr>
+        {% endfor %}
     </table>
 </div>
 {% endblock %}

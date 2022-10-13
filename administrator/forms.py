@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 
-from administrator.models import Profil, Supir
+from administrator.models import Jenis_Angkutan, Profil, Supir
 
 # sign up form
 
@@ -136,4 +136,26 @@ class SupirForm(forms.ModelForm):
 
     class Meta:
         model = Supir
+        fields = '__all__'
+
+
+class InputAngkutan(forms.ModelForm):
+    nama = forms.CharField(max_length=100,
+                           required=True,
+                           widget=forms.TextInput(attrs={'class': 'form-control',
+                                                         }))
+    no_angkutan = forms.CharField(max_length=100,
+                                  required=True,
+                                  widget=forms.TextInput(attrs={'placeholder': 'Masukan No Angkutan',
+                                                         'class': 'form-control',
+                                                                }))
+
+    rute = forms.CharField(max_length=100,
+                           required=True,
+                           widget=forms.TextInput(attrs={'placeholder': 'Masukan Rute',
+                                                         'class': 'form-control',
+                                                         }))
+
+    class Meta:
+        model = Jenis_Angkutan
         fields = '__all__'
