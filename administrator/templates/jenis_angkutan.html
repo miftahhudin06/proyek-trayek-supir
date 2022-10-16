@@ -18,7 +18,7 @@
             <td>{{x.nama_supir}}</td>
             <td>{{x.no_angkutan}}</td>
             <td>{{x.rute}}</td>
-            <td><a class="btn btn-primary" href="">Lihat detail</a></td>
+            <td><a class="btn btn-primary" href="{% url 'editjenisangkutan' x.id %}">Lihat detail</a></td>
         </tr>
         {% endfor %}
     </table>

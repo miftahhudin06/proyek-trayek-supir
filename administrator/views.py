@@ -134,14 +134,27 @@ def input_jenis_angkutan(request):
             return redirect(to='jenisangkutan')
     else:
         angkutan_form = InputAngkutan()
-    return render(request, 'input_jenis_angkutan.html', {'angkutan_form': angkutan_form})
+    return render(request, 'form_angkutan.html', {'angkutan_form': angkutan_form})
 
 
 @login_required
+def edit_jenis_angkutan(request, id):
+    angkutan = Jenis_Angkutan.objects.get(id=id)
+    if request.method == 'POST':
+        angkutan_form = InputAngkutan(request.POST, instance=angkutan)
+        if angkutan_form.is_valid:
+            angkutan_form.save()
+            return redirect(to='jenisangkutan')
+    else:
+        angkutan_form = InputAngkutan(instance=angkutan)
+    return render(request, 'form_angkutan.html', {'angkutan_form': angkutan_form})
+
+
+@ login_required
 def laporan_hasil_narik(request):
     return render(request, 'laporan_hasil_narik.html')
 
 
-@login_required
+@ login_required
 def laporan_bulanan(request):
     return render(request, 'laporan_bulanan.html')

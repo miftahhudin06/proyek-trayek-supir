@@ -140,10 +140,6 @@ class SupirForm(forms.ModelForm):
 
 
 class InputAngkutan(forms.ModelForm):
-    nama = forms.CharField(max_length=100,
-                           required=True,
-                           widget=forms.TextInput(attrs={'class': 'form-control',
-                                                         }))
     no_angkutan = forms.CharField(max_length=100,
                                   required=True,
                                   widget=forms.TextInput(attrs={'placeholder': 'Masukan No Angkutan',
@@ -158,4 +154,4 @@ class InputAngkutan(forms.ModelForm):
 
     class Meta:
         model = Jenis_Angkutan
-        fields = '__all__'
+        fields = ['nama_supir', 'no_angkutan', 'rute']

@@ -18,6 +18,8 @@ urlpatterns = [
     path('jenisangkutan/', views.jenis_angkutan, name='jenisangkutan'),
     path('inputjenisangkutan/', views.input_jenis_angkutan,
          name='inputjenisangkutan'),
+    path('editjenisangkutan/<int:id>/',
+         views.edit_jenis_angkutan, name='editjenisangkutan'),
     path('laporanhasilnarik/', views.laporan_hasil_narik, name='laporanhasilnarik'),
     path('laporanbulanan/', views.laporan_bulanan, name='laporanbulanan'),
 
