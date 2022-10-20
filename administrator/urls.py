@@ -21,6 +21,7 @@ urlpatterns = [
     path('editjenisangkutan/<int:id>/',
          views.edit_jenis_angkutan, name='editjenisangkutan'),
     path('laporanhasilnarik/', views.laporan_hasil_narik, name='laporanhasilnarik'),
+    path('inputlaporannarik/', views.input_laporan_narik, name='inputlaporannarik'),
     path('laporanbulanan/', views.laporan_bulanan, name='laporanbulanan'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

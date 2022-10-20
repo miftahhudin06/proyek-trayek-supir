@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 
-from administrator.models import Jenis_Angkutan, Profil, Supir
+from administrator.models import Jenis_Angkutan, Profil, Supir, Laporan_Narik
 
 # sign up form
 
@@ -154,4 +154,12 @@ class InputAngkutan(forms.ModelForm):
 
     class Meta:
         model = Jenis_Angkutan
-        fields = ['nama_supir', 'no_angkutan', 'rute']
+        fields = ['no_angkutan', 'rute']
+
+class LaporanNarik(forms.ModelForm):
+    tgl = forms.DateField(
+                          required=True,
+                          widget=forms.DateInput(attrs={'type': 'date'}))
+    class Meta :
+        model = Laporan_Narik
+        fields = '__all__'

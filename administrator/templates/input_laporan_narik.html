@@ -1,0 +1,27 @@
+{% extends "main_layout.html" %}
+{% block content %}
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-row">
+        <div class="card-body">
+            <label class="small mb-1">Nama:</label><br>
+            {{laporan_form.nama}}<br>
+            <label class="small mb-1">No Angkutan:</label><br>
+            {{laporan_form.no_angkutan}}<br>
+            <label class="small mb-1">tanggal:</label><br>
+            {{laporan_form.tgl}}<br>
+            <label class="small mb-1">KM sebelum:</label><br>
+            {{laporan_form.km_sebelum}}<br>
+            <label class="small mb-1">KM sesudah:</label><br>
+            {{laporan_form.km_sesudah}}<br>
+            <label class="small mb-1">bbm:</label><br>
+            {{laporan_form.bbm}}<br>
+            <label class="small mb-1">setoran:</label><br>
+            {{laporan_form.setoran}}<br>
+        </div>
+    </div>
+    <hr>
+    <button type="submit" class="btn btn-dark btn-lg">Simpan Perubahan</button>
+    <button type="reset" class="btn btn-dark btn-lg">Reset</button>
+</form>
+{% endblock %}
